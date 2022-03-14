@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.6.10"
 	kotlin("plugin.spring") version "1.6.10"
 	kotlin("plugin.jpa") version "1.6.10"
+	kotlin("plugin.serialization") version "1.4.21"
 }
 
 group = "com.gmail.williammingardi"
@@ -20,6 +21,9 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven {
+		url = uri("https://packages.confluent.io/maven/")
+	}
 }
 
 dependencies {
@@ -30,7 +34,9 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.kafka:spring-kafka")
+	implementation("io.confluent:kafka-avro-serializer:7.0.1")
 	implementation("org.flywaydb:flyway-core")
+	implementation("com.sksamuel.avro4k:avro4k-core:0.41.0")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

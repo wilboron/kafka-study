@@ -15,9 +15,11 @@ spring:
                 format_sql: true
     kafka:
         bootstrap-servers: localhost:9092
+        properties:
+            schema.registry.url: http://localhost:8081
         producer:
             key-serializer: org.apache.kafka.common.serialization.StringSerializer
-            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
         consumer:
             group-id: payment-request-api
             auto-offset-reset: earliest

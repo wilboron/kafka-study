@@ -24,6 +24,7 @@ class PaymentRequestController(
     ): ResponseEntity<PaymentRequestResponse> {
         val paymentRequest = createPaymentRequestMapper.map(createRequest)
         val authorResponse = paymentRequestResponseMapper.map(service.save(paymentRequest))
+        service.sendToKafka(paymentRequest, "payment_request")
         val uri = uriBuilder.path("/authors/${authorResponse.id}").build().toUri()
         return ResponseEntity.created(uri).body(authorResponse)
     }

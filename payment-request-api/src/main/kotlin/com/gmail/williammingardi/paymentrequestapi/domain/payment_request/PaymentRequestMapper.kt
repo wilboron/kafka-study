@@ -29,3 +29,18 @@ class CreatePaymentRequestMapper : Mapper<CreatePaymentRequest, PaymentRequest> 
         )
     }
 }
+
+@Component
+class PaymentRequestKafkaMapper : Mapper<PaymentRequest, PaymentRequestKafka> {
+    override fun map(t: PaymentRequest): PaymentRequestKafka {
+        return PaymentRequestKafka(
+            id = t.id,
+            customerId = t.customerId,
+            type = t.type,
+            valueCents = t.valueCents,
+            paymentReference = t.paymentReference ?: throw Exception("Payment ref not found"),
+            createdAt = t.createdAt,
+            updatedAt = t.updatedAt
+        )
+    }
+}

@@ -2,6 +2,7 @@ package com.gmail.williammingardi.paymentrequestapi.domain.payment_request
 
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
+import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import javax.persistence.*
 
@@ -29,9 +30,9 @@ class PaymentRequest(
 
     @CreationTimestamp
     @Column(name = "created_at")
-    var createdAt: OffsetDateTime? = null,
+    var createdAt: LocalDateTime? = null,
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    var updatedAt: OffsetDateTime? = null
+    var updatedAt: LocalDateTime? = null
 )

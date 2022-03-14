@@ -1,7 +1,8 @@
 package com.gmail.williammingardi.paymentrequestapi.domain.payment_request
 
-import com.fasterxml.jackson.annotation.JsonProperty
-import java.time.OffsetDateTime
+import com.sksamuel.avro4k.serializer.LocalDateTimeSerializer
+import kotlinx.serialization.Serializable
+import java.time.LocalDateTime
 
 data class CreatePaymentRequest(
     val customerId: String,
@@ -16,6 +17,19 @@ data class PaymentRequestResponse(
     val type: String?,
     val valueCents: Long?,
     val paymentReference: String?,
-    val createdAt: OffsetDateTime?,
-    val updatedAt: OffsetDateTime?
+    val createdAt: LocalDateTime?,
+    val updatedAt: LocalDateTime?
+)
+
+@Serializable
+data class PaymentRequestKafka(
+    val id: Long?,
+    val customerId: String?,
+    val type: String?,
+    val valueCents: Long?,
+    val paymentReference: String,
+    @Serializable(with = LocalDateTimeSerializer::class)
+    val createdAt: LocalDateTime?,
+    @Serializable(with = LocalDateTimeSerializer::class)
+    val updatedAt: LocalDateTime?
 )
