@@ -17,6 +17,9 @@ configurations {
 	compileOnly {
 		extendsFrom(configurations.annotationProcessor.get())
 	}
+	all {
+		exclude(group ="org.springframework.boot", module="spring-boot-starter-logging")
+	}
 }
 
 repositories {
@@ -37,6 +40,7 @@ dependencies {
 	implementation("io.confluent:kafka-avro-serializer:7.0.1")
 	implementation("org.flywaydb:flyway-core")
 	implementation("com.sksamuel.avro4k:avro4k-core:0.41.0")
+	implementation("org.springframework.boot:spring-boot-starter-log4j2")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

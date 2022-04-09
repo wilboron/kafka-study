@@ -1,9 +1,8 @@
-package com.gmail.williammingardi.paymentrequestapi.domain.payment_request
+package com.gmail.williammingardi.paymentrequestapi.domain.payment_request.model
 
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import java.time.LocalDateTime
-import java.time.OffsetDateTime
 import javax.persistence.*
 
 @Entity
