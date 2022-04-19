@@ -38,12 +38,13 @@ class PaymentRequestService(
             paymentRequestKafka
         )
 
+        LOG.info(avroRecord.schema)
         LOG.info("Sending record to kafka: $paymentRequestKafka")
-//        kafka.send(
-//            topicName,
-//            paymentRequestKafka.paymentReference,
-//            avroRecord
-//        )
+        kafka.send(
+            topicName,
+            paymentRequestKafka.paymentReference,
+            avroRecord
+        )
     }
 
     fun save(paymentRequest: PaymentRequest): PaymentRequest {

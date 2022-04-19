@@ -1,0 +1,59 @@
+{
+  "type": "record",
+  "name": "PaymentRequestKafka",
+  "namespace": "com.gmail.williammingardi.paymentrequestapi.domain.payment_request.dto",
+  "fields": [
+    {
+      "name": "id",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "customerId",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "type",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "valueCents",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "paymentReference",
+      "type": "string"
+    },
+    {
+      "name": "createdAt",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ]
+    },
+    {
+      "name": "updatedAt",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ]
+    }
+  ]
+}
